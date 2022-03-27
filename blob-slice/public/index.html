@@ -1,0 +1,46 @@
+<!--
+ * @Author: luoxi
+ * @LastEditTime: 2022-03-27 22:56:59
+ * @LastEditors: your name
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="input" />
+    <button id="btn">上传</button>
+    <script>
+      let chunkSize = 1024,
+        index = 0;
+
+      btn.addEventListener("click", upload);
+
+      function upload() {
+        console.log(input.files[0]);
+        const file = input.files[0];
+        const [fileName, ext] = file.name.split(".");
+        let start = index * chunkSize;
+        if (start > file.size) return;
+        const blob = file.slice(start, start + chunkSize);
+        const formData = new FormData();
+        const blobName = `${fileName}${index}.${ext}`;
+        const blobFile = new File([blob], blobName);
+        formData.append("file", blobFile);
+
+        fetch("/upload", {
+          method: "post",
+          body: formData,
+        }).then(() => {
+          index++;
+          upload();
+        });
+      }
+    </script>
+  </body>
+</html>
