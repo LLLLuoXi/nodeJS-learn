@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-03-27 23:14:54
+ * @LastEditTime: 2022-04-02 21:55:32
  * @LastEditors: your name
  * @Description: 
 -->
@@ -16,4 +16,5 @@
 - - [用net模块创建图片服务器。](./net/imgServer.js) 
 -  📖 [用http模块创建静态资源服务器。](./http/index.js) 
 -  📖 [文件分片上传](./blob-slice/README.md) 
+-  📖 [sequelize](./sequelize-school/README.md) 
 
