@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-05 09:28:44
+ * @LastEditTime: 2022-04-05 22:04:26
  * @LastEditors: your name
  * @Description: 
  */
@@ -45,14 +45,17 @@
 // })
 
 
-const adminServ = require('./services/adminService')
+// const adminServ = require('./services/adminService')
 
-// adminServ.addAdmin({
-//   loginId: '2',
-//   loginPwd: '12356',
-//   name: 'admin2'
+// // adminServ.addAdmin({
+// //   loginId: '2',
+// //   loginPwd: '12356',
+// //   name: 'admin2'
+// // })
+
+// adminServ.updateAdmin(2, {
+//   name: '哈哈哈'
 // })
 
-adminServ.updateAdmin(2, {
-  name: '哈哈哈'
-})
+require('./models/relation')
+require('./mock/mockStudent')
