@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-05 22:04:26
+ * @LastEditTime: 2022-04-06 17:40:39
  * @LastEditors: your name
  * @Description: 
  */
@@ -20,6 +20,7 @@
 
 // run();
 
+// 模型同步
 // require('./models/sync')
 
 // 增加
@@ -58,4 +59,5 @@
 // })
 
 require('./models/relation')
-require('./mock/mockStudent')
+// require('./mock/mockStudent')
+require('./spider/fetchBooks')
