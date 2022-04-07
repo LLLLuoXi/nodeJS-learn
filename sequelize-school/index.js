@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-06 17:40:39
+ * @LastEditTime: 2022-04-07 22:23:53
  * @LastEditors: your name
  * @Description: 
  */
@@ -48,11 +48,11 @@
 
 // const adminServ = require('./services/adminService')
 
-// // adminServ.addAdmin({
-// //   loginId: '2',
-// //   loginPwd: '12356',
-// //   name: 'admin2'
-// // })
+// adminServ.addAdmin({
+//   loginId: 'bcd',
+//   loginPwd: '12356',
+//   name: 'bcd'
+// })
 
 // adminServ.updateAdmin(2, {
 //   name: '哈哈哈'
@@ -60,4 +60,21 @@
 
 require('./models/relation')
 // require('./mock/mockStudent')
-require('./spider/fetchBooks')
+// require('./spider/fetchBooks')
+
+// 查询
+// const adminService = require('./services/adminService')
+// adminService.login('bcd', '12356').then(res => {
+//   console.log(res);
+// })
+// adminService.getAdminById(1).then(res => {
+//   console.log(res);
+// })
+
+const studentService = require('./services/studentService')
+studentService.getStudents(1, 10, false, '秀').then(res => {
+  console.log(res);
+  // include 链表的信息
+  console.log(res.datas[0].Class.name);
+})
+

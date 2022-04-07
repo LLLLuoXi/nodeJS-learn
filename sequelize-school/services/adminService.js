@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-05 09:27:29
+ * @LastEditTime: 2022-04-07 22:31:36
  * @LastEditors: your name
  * @Description: admin 业务逻辑
  */
@@ -34,4 +34,30 @@ exports.updateAdmin = async function (id, adminObj) {
       id
     }
   })
+}
+
+exports.login = async function (loginId, loginPwd) {
+  const result = await Admin.findOne({
+    where: {
+      loginId,
+      loginPwd
+    }
+  })
+  if (result && result.loginId === loginId && result.loginPwd === loginPwd) {
+    return result.toJSON()
+  }
+  return null
+}
+
+exports.getAdminById = async function (id) {
+  const result = await Admin.findByPk(id)
+  if (result) {
+    return result.toJSON()
+  }
+  return null
+}
+
+exports.getAdmins = async function () {
+  const result = await Admin.findAll()
+  return JSON.parse(JSON.stringify(result));
 }
