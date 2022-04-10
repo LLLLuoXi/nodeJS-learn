@@ -1,9 +1,50 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-07 22:23:53
+ * @LastEditTime: 2022-04-10 17:19:01
  * @LastEditors: your name
- * @Description: 
+ * @Description:
  */
+require('./init')
+
+const stuServ = require('./services/studentService')
+stuServ.addStudent({
+  name: "luoxi2",
+  birthday: "2015-1-9",
+  sex: true,
+  mobile: "13877995846",
+  ClassId: 50,
+  a: 3
+})
+  .catch(err => {
+    console.log(err);
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------测试区域------------------------------------------
+
 // const sequelize = require('./models/db')
 // console.log('sequelize', sequelize);
 
@@ -46,19 +87,20 @@
 // })
 
 
+// 添加管理员
 // const adminServ = require('./services/adminService')
 
 // adminServ.addAdmin({
-//   loginId: 'bcd',
-//   loginPwd: '12356',
-//   name: 'bcd'
+//   loginId: 'test1',
+//   loginPwd: '123456',
+//   name: 'test1'
 // })
 
 // adminServ.updateAdmin(2, {
 //   name: '哈哈哈'
 // })
 
-require('./models/relation')
+// require('./models/relation')
 // require('./mock/mockStudent')
 // require('./spider/fetchBooks')
 
@@ -71,10 +113,10 @@ require('./models/relation')
 //   console.log(res);
 // })
 
-const studentService = require('./services/studentService')
-studentService.getStudents(1, 10, false, '秀').then(res => {
-  console.log(res);
-  // include 链表的信息
-  console.log(res.datas[0].Class.name);
-})
-
+// 查询学生数据
+// const studentService = require('./services/studentService')
+// studentService.getStudents(1, 10, false, '秀').then(res => {
+//   console.log(res);
+//   // include 链表的信息
+//   console.log(res.datas[0].Class.name);
+// })
