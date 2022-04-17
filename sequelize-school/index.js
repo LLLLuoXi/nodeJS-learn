@@ -1,46 +1,12 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-10 17:19:01
+ * @LastEditTime: 2022-04-17 16:41:42
  * @LastEditors: your name
  * @Description:
  */
 require('./init')
-
-const stuServ = require('./services/studentService')
-stuServ.addStudent({
-  name: "luoxi2",
-  birthday: "2015-1-9",
-  sex: true,
-  mobile: "13877995846",
-  ClassId: 50,
-  a: 3
-})
-  .catch(err => {
-    console.log(err);
-  })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const { sqlLogger } = require('./logger')
+// sqlLogger.info('luoxi')
 
 
 // ----------------------测试区域------------------------------------------
@@ -119,4 +85,22 @@ stuServ.addStudent({
 //   console.log(res);
 //   // include 链表的信息
 //   console.log(res.datas[0].Class.name);
+// })
+
+
+// stuServ.addStudent({
+//   name: "luoxi2",
+//   birthday: "2015-1-9",
+//   sex: true,
+//   mobile: "13877995846",
+//   ClassId: 50,
+//   a: 3
+// })
+//   .catch(err => {
+//     console.log(err);
+//   })
+
+// const stuServ = require('./services/studentService')
+// stuServ.getStudents().then(res => {
+//   console.log(res);
 // })

@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-10 17:43:00
+ * @LastEditTime: 2022-04-17 15:25:47
  * @LastEditors: your name
  * @Description: Model student
  */
@@ -90,6 +90,16 @@ exports.updateStudent = async function (id, obj) {
   });
 };
 
+
+/**
+ * 描述
+ * @date 2022-04-17
+ * @param {any} page=1  页码
+ * @param {any} limit=10 每页显示十条
+ * @param {any} sex=-1 性别
+ * @param {any} name='' 姓名
+ * @returns {any}
+ */
 exports.getStudents = async function (page = 1, limit = 10, sex = -1, name = '') {
   // const result = await Student.findAll({
   //   limit: +limit,
@@ -114,10 +124,11 @@ exports.getStudents = async function (page = 1, limit = 10, sex = -1, name = '')
   }
 
   const { count, rows } = await Student.findAndCountAll({
-    attributes: ['id', 'name', 'sex', 'birthday'],
+    attributes: ['id', 'name', 'sex', 'birthday', 'age'],
     where: condition,
     include: [Class],
     limit: +limit,
+    // 跳过的记录
     offset: (page - 1) * limit,
   })
   return {
