@@ -1,35 +1,11 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-05-30 22:02:18
+ * @LastEditTime: 2022-06-01 22:23:42
  * @LastEditors: your name
  * @Description:
  */
 require('./init')
-const express = require('express')
-// 创建一个express应用
-const app = express();
-// app实际上是一个函数，用于处理请求的函数
-// 配置一个请求映射，如果请求方法和请求路径均满足匹配，交给处理函数进行处理
-// app.请求方法（“请求路径”，处理函数）
-app.get("/abc/:id", (req, res) => {
-  console.log("请求头", req.headers)
-  console.log("请求路径", req.path)
-  console.log("请求参数", req.query)
-  console.log("params", req.params)
 
-  // 响应
-  res.setHeader('a', "123")
-  res.send("<h1>你好啊！</h1>")
-  // res.status(302).header("location", "https://www.baidu.com").end()
-  // REST风格的API接口 用请求方法区分不同的请求 方便记忆区分
-  res.redirect("https://www.baidu.com", 302)
-
-
-})
-const port = 5008;
-app.listen(port, () => {
-  console.log(`server listening on ${port}`);
-});
 // const { sqlLogger } = require('./logger')
 // sqlLogger.info('luoxi')
 
