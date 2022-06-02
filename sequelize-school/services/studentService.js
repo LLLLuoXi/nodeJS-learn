@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-04-17 15:25:47
+ * @LastEditTime: 2022-06-02 23:00:23
  * @LastEditors: your name
  * @Description: Model student
  */
@@ -71,6 +71,7 @@ exports.addStudent = async function (stuObj) {
   // console.log('result', result);
   await validate.async(stuObj, rule)
   const ins = await Student.create(stuObj);
+  console.log(ins);
   return ins.toJSON();
 };
 
@@ -88,6 +89,14 @@ exports.updateStudent = async function (id, obj) {
       id,
     },
   });
+};
+
+exports.getStudentById = async function (id) {
+  const result = await Student.findByPk(id);
+  if (result) {
+    return result.toJSON();
+  }
+  return null;
 };
 
 

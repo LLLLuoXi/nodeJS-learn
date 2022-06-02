@@ -1,12 +1,11 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-06-02 00:04:40
+ * @LastEditTime: 2022-06-02 22:19:19
  * @LastEditors: your name
  * @Description: 
  */
 const express = require('express')
 const path = require('path')
-// 创建一个express应用
 const app = express();
 
 // app实际上是一个函数，用于处理请求的函数
@@ -53,12 +52,13 @@ app.use(express.urlencoded({
 }))
 // app.use(require("./myUrlencoded"))
 app.use(express.json())
-app.post("/api/student", (req, res) => {
-  console.log(req.body);
-})
+
+// 路由
+app.use("/api/student", require('../api/students'))
+// 错误中间件
 app.use("/news", require('./errorMiddleware'))
 
-const port = 5007;
+const port = 5008;
 app.listen(port, () => {
   console.log(`server listening on ${port}`);
 });
